@@ -1,0 +1,678 @@
+/* RESET GLOBAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #666666;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+
+/* ESTRUTURA */
+
+.page-container {
+    width: 100%;
+    padding: 120px 5% 40px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-container {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 5% 40px 5%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+/* HERO */
+
+.hero-page {
+    min-height: 120vh;
+    padding-bottom: 80px;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.subtitle {
+    color: #264de4;
+}
+
+.hero-text .subtitle {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-bottom: 110px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 5px 0;
+    line-height: 0.9;
+}
+
+.hero-text h1 span {
+    display: block;
+}
+
+.signature-image {
+    display: block;
+    width: 340px;
+    max-width: 100%;
+    margin: 20px 0 0;
+    opacity: 0;
+    pointer-events: none;
+    clip-path: inset(0 100% 0 0);
+    animation: writeSignature 2s ease forwards 0.5s;
+}
+
+@keyframes writeSignature {
+    0% {
+        opacity: 1;
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.signature {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.social-badge-container {
+    display: inline-flex;
+    background: #18171c;
+    padding: 12px 25px;
+    border-radius: 12px;
+    gap: 20px;
+}
+
+.social-badge-container a {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.avatar-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #cde6ff 0%, #a2c857 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doom-mask {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 235px;
+    height: auto;
+    max-width: 235px;
+    object-fit: contain;
+    transform: translate(-50%, -250px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+
+/* SKILLS */
+
+.skills-page,
+.projetos-page {
+    text-align: center;
+}
+
+.skills-left {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+
+/* Alinha as imagens da coluna esquerda (skills) ao lado esquerdo */
+
+.skills-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.img-perna {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin-left: 0;
+}
+
+.perna-container {
+    margin-left: 0;
+}
+
+
+/* Continuidade: imagem lateral que atravessa SKILLS -> PROJETOS */
+
+.continuidade-wrapper {
+    position: absolute;
+    left: 0;
+    top: 140px;
+    /* ajuste inicial — podemos refinar */
+    width: 520px;
+    max-width: 40vw;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.continuidade-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.continuidade-bottom {
+    margin-top: -40px;
+    /* sobrepor levemente para continuidade */
+}
+
+
+/* Esconder as imagens originais dentro da estrutura para evitar duplicação */
+
+.skills-left .foto-eu-continuidade,
+.skills-left .img-perna {
+    visibility: hidden;
+}
+
+.body-top,
+.body-bottom {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+    margin: 0 auto 40px;
+}
+
+.portfolio-section {
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .skills-left {
+        max-width: 100%;
+    }
+}
+
+.tech-images-mock {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.badge {
+    font-size: 26px;
+    font-weight: 900;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.html5 {
+    background-color: #e44d26;
+    color: #fff;
+}
+
+.css3 {
+    background-color: #264de4;
+    color: #fff;
+}
+
+.js {
+    background-color: #f7df1e;
+    color: #000;
+}
+
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.bar-background {
+    flex: 1;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #e44d26;
+    border-radius: 20px;
+}
+
+.percent-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.portfolio-section h2 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    color: #8c8c8c;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.skills-left .foto-eu-continuidade,
+.skills-left .img-perna {
+    visibility: visible;
+}
+
+
+/* Posicionamento específico para a seção skills: imagem no canto esquerdo ocupando metade */
+
+.skills-left {
+    position: relative;
+    overflow: visible;
+    margin-left: 56vw;
+}
+
+.skills-page {
+    position: relative;
+    overflow: visible;
+}
+
+.skills-page .foto-eu-continuidade {
+    position: absolute;
+    left: -5%;
+    top: 0;
+    width: 52vw;
+    max-width: none;
+    height: 100vh;
+    object-fit: contain;
+    object-position: left top;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.skills-page::after {
+    content: "";
+    position: absolute;
+    left: 47vw;
+    top: 0;
+    width: 10vw;
+    height: 100vh;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.skills-left .perna-container {
+    position: relative;
+    z-index: 2;
+    margin-left: 0;
+}
+
+.skills-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    z-index: 2;
+    position: relative;
+}
+
+.skill-card {
+    width: 110px;
+    min-height: 130px;
+    padding: 18px 14px 16px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+.skill-card:hover,
+.skill-card.active {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-4px);
+}
+
+.skills-card {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.skill-card .skill-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.skill-card span {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.skill-card .skill-percent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.skill-card:hover .skill-percent,
+.skill-card.active .skill-percent {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .skills-cards {
+        justify-content: center;
+    }
+    .skill-card {
+        width: 96px;
+    }
+}
+
+
+/* Mostrar apenas top.png: esconder a perna/bottom nesse layout */
+
+.skills-left .img-perna,
+.perna-container img {
+    display: none;
+}
+
+
+/* Esconder o bottom.png na página de projetos (evita aparecer apenas em projetos) */
+
+.projetos-page .corte-pernas-container {
+    display: none;
+}
+
+
+/* Para a página skills (skills.html): posicionar body-top no canto esquerdo como em index */
+
+.skills-page {
+    position: relative;
+    overflow: visible;
+}
+
+.skills-page .body-top {
+    position: fixed;
+    left: 0;
+    top: 120px;
+    /* below navbar/padding */
+    width: 50vw;
+    height: calc(100vh - 120px);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.skills-page .skills-section {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .skills-page .body-top {
+        display: none;
+    }
+}
+
+
+/* Oculta o wrapper global se causar duplicação visual */
+
+.continuidade-wrapper {
+    display: none;
+}
+
+.glass-card {
+    height: 280px;
+    border-radius: 24px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-card:hover .glass-card {
+    transform: translateY(-5px);
+}
+
+.project-card p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.signature-center {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 26px;
+    opacity: 0.6;
+    margin-top: 40px;
+}
+
+
+/* CONTATO */
+
+.contato-page {
+    align-items: center;
+    padding-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-left h2 {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.blue-highlight {
+    color: #0000ff;
+}
+
+.footer-subtext {
+    font-size: 12px;
+    max-width: 320px;
+    margin-top: 20px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.contact-item {
+    text-align: right;
+}
+
+.contact-value {
+    color: #0000ff;
+}
+
+.bottom-blue-bar {
+    width: 100vw;
+    height: 25px;
+    background-color: #1a0066;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    }
+    .hero-container,
+    .skills-section,
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-right {
+        align-items: center;
+    }
+    .contact-item {
+        text-align: center;
+    }
+    .foto-eu-continuidade {
+        display: none;
+    }
+    .continuidade-wrapper {
+        display: none;
+    }
+    .footer-text {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        width: 100%;
+    }
+}
